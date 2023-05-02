@@ -5,11 +5,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
     <title>Document</title>
 </head>
 
 <body>
+    <% for( let i=0; i < launchpads.length; i++ ) { %>
+        <% let launchpad=launchpads[i] %>
 
+
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="<%= launchpad.images.large %>" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4">
+                                <%= launchpad.full_name %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= launchpad.region %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= launchpad.locality %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= launchpad.latitude %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= launchpad.longitude %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= launchpad.launch_attempts %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= launchpad.launch_successes %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= launchpad.rockets %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= launchpad.status %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content"> Details:
+                        <%= launchpad.details %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
 </body>
 
 </html>

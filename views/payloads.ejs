@@ -5,11 +5,146 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
     <title>Document</title>
 </head>
 
 <body>
+    <% for( let i=0; i < payloads.length; i++ ) { %>
+        <% let payload=payloads[i] %>
 
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4">
+                                <%= payload.name %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= payload.type %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= payload.reused %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <p> Customers:
+                            <%= payload.customers %>
+                        </p>
+                        <p> Norad IDs:
+                            <%= payload.norad_ids %>
+                        </p>
+                        <p> Nationalities:
+                            <%= payload.nationalities %>
+                        </p>
+                        <p>Manufacturers:
+                            <%= payload.manufacturers %>
+                        </p>
+                        <p>Mass KG:
+                            <%= payload.mass_kg %>
+                                <br>
+                                Mass LBS:
+                                <%= payload.mass_lbs %>
+                                    <br>
+                                    Orbit:
+                                    <%= payload.orbit %>
+                                        <br>
+                                        Reference System:
+                                        <%= payload.reference_system %>
+                                            <br>
+                                            Regime:
+                                            <%= payload.regime %>
+                                                <br>
+                                                Longitude:
+                                                <%= payload.longitude %>
+                                                    <br>
+                                                    Semi Major Axis KM:
+                                                    <%= payload.semi_major_axis_km %>
+                                                        <br>
+                                                        Eccentricity:
+                                                        <%= payload.eccentricity %>
+                                                            <br>
+                                                            Periapsis KM:
+                                                            <%= payload.periapsis_km %>
+                                                                <br>
+                                                                Apoapsis KM:
+                                                                <%= payload.apoapsis_km %>
+                                                                    <br>
+                                                                    Inclination Degree:
+                                                                    <%= payload.inclination_deg %>
+                                                                        <br>
+                                                                        Period/Min:
+                                                                        <%= payload.period_min %>
+                                                                            <br>
+                                                                            Lifespan/Years:
+                                                                            <%= payload.lifespan_years %>
+                                                                                <br>
+                                                                                Epoch:
+                                                                                <%= payload.epoch %>
+                                                                                    <br>
+                                                                                    Mean Motion:
+                                                                                    <%= payload.mean_motion %>
+                                                                                        <br>
+                                                                                        Raan:
+                                                                                        <%= payload.raan %>
+                                                                                            <br>
+                                                                                            Arg of Pericenter:
+                                                                                            <%= payload.arg_of_pericenter
+                                                                                                %>
+                                                                                                <br>
+                                                                                                Mean Anomaly:
+                                                                                                <%= payload.mean_anomaly
+                                                                                                    %>
+                                                                                                    <br>
+                                                                                                    ID:
+                                                                                                    <%= payload.id %>
+
+                        </p>
+                        <br>
+                    </div>
+                    <div class="card">
+                        <footer class="card-footer">
+                            <p class="card-footer-item">Dragon: <% if (payload.dragon.capsule===null) { %>
+                                    <%= 'N/A' %>
+                                        <% } else {%>
+                                            <%= payload.dragon.capsule %>
+                                                <% } %>
+                            </p>
+                            <a href="<%= payload.dragon.mainfest %>" class="card-footer-item">Manifest Page</a>
+                            <p class="card-footer-item">Mass returned KG:
+                                <% if (payload.dragon.mass_returned_kg===null) { %>
+                                    <%= 'N/A' %>
+                                        <% } else {%>
+                                            <%= payload.dragon.mass_returned_kg %>
+                                                <% } %>
+                            </p>
+                            <p class="card-footer-item">Mass returned LBS: <% if
+                                    (payload.dragon.mass_returned_lbs===null) { %>
+                                    <%= 'N/A' %>
+                                        <% } else {%>
+                                            <%= payload.dragon.mass_returned_lbs %>
+                                                <% } %>
+                            </p>
+                            <p class="card-footer-item">Water landing: <% if (payload.dragon.water_landing===null) { %>
+                                    <%= 'N/A' %>
+                                        <% } else {%>
+                                            <%= payload.dragon.water_landing %>
+                                                <% } %>
+                            </p>
+                            <p class="card-footer-item">Land Landing: <% if (payload.dragon.land_landing===null) { %>
+                                    <%= 'N/A' %>
+                                        <% } else {%>
+                                            <%= payload.dragon.land_landing %>
+                                                <% } %>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <% } %>
 </body>
 
 </html>
