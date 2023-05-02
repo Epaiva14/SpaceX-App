@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Capsules Page</title>
+</head>
+
+<body>
+    <!-- <div class="card">
+        <div class="card-content">
+            <p class="title">
+                <% for( let i=0; i < capsules.length; i++ ) { %>
+                    <% let capsule=capsules[i] %>
+                        Serial:
+                        <%= capsule.serial %>
+            </p>
+            <p class="subtitle">
+                Type:
+                <%= capsule.type %>
+            </p>
+        </div>
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                <span>
+                    Status: < <%=capsule.status %>></a>
+                </span>
+            </p>
+            <p class="card-footer-item">
+                <span>
+                    Reuse Count: < <%=capsule.reuse_count %>></a>
+                </span>
+            </p>
+            <p class="card-footer-item">
+                <span>
+                    Water Landings:< <%=capsule.water_landings %>></a>
+                </span>
+            </p>
+            <p class="card-footer-item">
+                <span>
+                    Land Landings: < <%=capsule.land_landings %>></a>
+                </span>
+            </p>
+            <p class="card-footer-item">
+                <span>
+                    Last Update:<<% if (capsule.last_update===null) { %>
+                        <%= 'N/A' %>
+                            <% } else {%>
+                                <%= capsule.last_update %>
+                                    <% } %>></a>
+                </span>
+            </p>
+            <p class="card-footer-item">
+                <span>
+                    Launches: < <% if (capsule.launches.length < 1) { %>
+                        <%= 'N/A' %>
+                            <% } else {%>
+                                <%= capsule.launches %>
+                                    <% } %>></a>
+                </span>
+            </p>
+            <p class="card-footer-item">
+                <span>
+                    ID:< <%=capsule.id %>></a>
+                </span>
+            </p>
+        </footer>
+        <% }%>
+    </div>
+    <hr> -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th><abbr title="Serial">Serial</abbr></th>
+                <th><abbr title="Type">Type</abbr></th>
+                <th><abbr title="Reuse Count">Reuse Count</abbr></th>
+                <th><abbr title="Water Landinds">Water Landings</abbr></th>
+                <th><abbr title="Land Landings">Land Landings</abbr></th>
+                <th><abbr title="Last Update">Last Update</abbr></th>
+                <th><abbr title="Status">Status</abbr></th>
+                <th>ID</th>
+                <th>Launches</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th><abbr title="Serial">Ser#</abbr></th>
+                <th><abbr title="Type">Typ</abbr></th>
+                <th><abbr title="Reuse Count">RU</abbr></th>
+                <th><abbr title="Water Landinds">WL</abbr></th>
+                <th><abbr title="Land Landings">LL</abbr></th>
+                <th><abbr title="Last Update">Last</abbr></th>
+                <th><abbr title="Status">Stat</abbr></th>
+                <th>ID</th>
+                <th>launches</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <% for( let i=0; i < capsules.length; i++ ) { %>
+                <% let capsule=capsules[i] %>
+                    <tr>
+                        <th>
+                            <%= capsule.serial %>
+                        </th>
+                        <td>
+                            <%= capsule.type %>
+                        </td>
+                        <td>
+                            <%= capsule.reuse_count %>
+                        </td>
+                        <td>
+                            <%= capsule.water_landings %>
+                        </td>
+                        <td>
+                            <%= capsule.land_landings %>
+                        </td>
+                        <td>
+                            <% if (capsule.last_update===null) { %>
+                                <%= 'N/A' %>
+                                    <% } else {%>
+                                        <%= capsule.last_update %>
+                                            <% } %>
+                        </td>
+                        <td>
+                            <%= capsule.status %>
+                        </td>
+                        <td>
+                            <%= capsule.id %>
+                        </td>
+                        <td>
+                            <% if (capsule.launches.length < 1) { %>
+                                <%= 'N/A' %>
+                                    <% } else {%>
+                                        <%= capsule.launches %>
+                                            <% } %>
+                        </td>
+                    </tr>
+                    <% }%>
+        </tbody>
+    </table>
+</body>
+
+</html>

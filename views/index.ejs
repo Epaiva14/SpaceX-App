@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-content">
+            <p class="title">
+                <%= company.name %>
+            </p>
+            <p class="subtitle">
+                Headquarters:
+                <%= company.headquarters.address %>,
+                    <%= company.headquarters.city %>,
+                        <%= company.headquarters.state %>
+            </p>
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                        Founded:
+                        <%= company.founded %>
+                            <br>
+                            Employees:
+                            <%= company.employees %>
+                                <br>
+                                Vehicles:
+                                <%= company.vehicles %>
+                                    <br>
+                                    Launch Sites:
+                                    <%= company.launch_sites %>
+                                        <br>
+                                        Test Sites:
+                                        <%= company.test_sites %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <article class="message is-info">
+            <div class="message-header">
+                <p>SpaceX</p>
+                <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+                <%= company.summary %>
+            </div>
+        </article>
+
+
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                <span>
+                    CEO:
+                    <%= company.ceo %>
+                </span>
+            <p class="card-footer-item">
+                <span>
+                    CTO:
+                    <%= company.cto %>
+                </span>
+            <p class="card-footer-item">
+                <span>
+                    COO:
+                    <%= company.coo %>
+                </span>
+            </p>
+            <p class="card-footer-item">
+                <span>
+                    CTO Propulsion:
+                    <%= company.cto_propulsion %>
+                        <br>
+                </span>
+            </p>
+            <p class="card-footer-item">
+                <span>
+                    Valuation:
+                    <%= company.valuation %>
+                        <br>
+                </span>
+            </p>
+        </footer>
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                <span>
+                    Elon Musk Twitter <a href="<%= company.links.elon_twitter %>"></a>
+                </span>
+            <p class="card-footer-item">
+                <span>
+                    SpaceX Website <a href="<%= company.links.website %>"></a>
+                </span>
+            <p class="card-footer-item">
+                <span>
+                    View on <a href="<%= company.links.twitter %>">Twitter</a>
+                </span>
+            </p>
+            <p class="card-footer-item">
+                <span>
+                    View on <a href="<%= company.links.flickr %>">Flickr</a>
+                </span>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
