@@ -11,7 +11,46 @@
 </head>
 
 <body>
+    <div class="card">
+        <div class="card-image">
+            <figure class="image is-16by16">
+                <img src="<%= roadster.flickr_images %>" alt="Placeholder image">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-content">
+                    <p class="title is-4">
+                        <%= roadster.name %>
+                    </p>
+                    <p class="subtitle is-6">Orbit Type:
+                        <%= roadster.orbit_type %>
+                    </p>
+                    <p class="subtitle is-6">ID:
+                        <%= roadster.id %>
+                    </p>
+                </div>
+            </div>
 
+            <div class="content">
+                <p>Details:
+                    <br>
+                    <%= roadster.details %>
+                </p>
+                <br>
+                <time datetime="2018-02-06">
+                    <%= roadster.launch_date_utc %>
+                </time>
+            </div>
+            <div class="card">
+                <footer class="card-footer">
+                    <a href="<%= roadster.wikipedia %>" class="card-footer-item">Wikipedia</a>
+                    <a href="<%= roadster.video %>" class="card-footer-item">Roadster Video</a>
+
+                </footer>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

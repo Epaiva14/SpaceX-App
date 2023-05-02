@@ -620,7 +620,7 @@ app.get('/roadster', function (req, res) {
         .then(function (response) {
             // handle success
             //console.log(response.data);
-            res.json({ data: response.data })
+            res.render('roadster', { roadster: response.data })
         })
         .catch(function (error) {
             //console.log(error);
