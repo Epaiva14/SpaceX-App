@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <title>Landpads</title>
+</head>
+
+<body>
+    <% for( let i=0; i < landpads.length; i++ ) { %>
+        <% let landpad=landpads[i] %>
+
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="<%= landpad.images.large %>" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content" style="border: 15px solid forestgreen; border-radius: 25px;">
+                    <div class="media">
+                        <div class="media-left">
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">
+                                <%= landpad.name %>
+                            </p>
+                            <p class="subtitle is-6"> Full Name:
+                                <%= landpad.full_name %>
+                            </p>
+                            <p class="subtitle is-6"> Status:
+                                <%= landpad.status %>
+                            </p>
+                            <p class="subtitle is-6"> Type:
+                                <%= landpad.type %>
+                            </p>
+                            <p class="subtitle is-6"> Locality:
+                                <%= landpad.locality %>
+                            </p>
+                            <p class="subtitle is-6"> Region:
+                                <%= landpad.region %>
+                            </p>
+                            <p class="subtitle is-6"> Latitude:
+                                <%= landpad.latitude %>
+                            </p>
+                            <p class="subtitle is-6"> Longitude:
+                                <%= landpad.longitude %>
+                            </p>
+                            <p class="subtitle is-6"> Landing Attempts:
+                                <%= landpad.landing_attempts %>
+                            </p>
+                            <p class="subtitle is-6"> Landing Successes:
+                                <%= landpad.landing_successes %>
+                            </p>
+                            <p class="subtitle is-6"> ID:
+                                <%= landpad.id %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <a href="<%= landpad.wikipedia %>">Wikipedia</a>
+                        <p> Details:
+                            <%= landpad.details %>
+                        </p>
+
+                        <br>
+                    </div>
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Launches:
+                            </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <%= landpad.launches %>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <% } %>
+</body>
+
+</html>
