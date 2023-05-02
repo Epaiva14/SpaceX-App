@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <title>Dragons</title>
+</head>
+
+<body>
+    <% for( let i=0; i < dragons.length; i++ ) { %>
+        <% let dragon=dragons[i] %>
+
+
+            <div class="card" style="border: 25px solid navy;">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="<%= dragon.flickr_images %>" alt="Placeholder image"
+                            style="border-radius: 15px;  width: 50%; height: 50%;">
+                    </figure>
+                </div>
+                <div class="card-content" style="margin-top: -500px;">
+                    <div class="media">
+                        <div class="media-left">
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-1">
+                                <%= dragon.name %>
+                            </p>
+                            <br>
+                            <p class="subtitle is-5">Type: <%= dragon.type %>
+                            </p>
+                            <p class="subtitle is-5"> Active: <%= dragon.active %>
+                            </p>
+                            <p class="subtitle is-5">Crew Cap: <%= dragon.crew_capacity %>
+                            </p>
+                            <p class="subtitle is-5">Orbit Duration YRS: <%= dragon.orbit_duration_yr %>
+                            </p>
+                            <p class="subtitle is-5">Dry Mass KG: <%= dragon.dry_mass_kg %>
+                            </p>
+                            <p class="subtitle is-5"> Dry Mass LB: <%= dragon.dry_mass_lb %>
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="content" style="font-size: 24px;">
+                        <a href="<%= dragon.wikipedia %>"> Wikipedia</a>
+                        <%= dragon.description %>
+                            <br>
+                            <time datetime="<%= dragon.first_flight %>">First Flight</time>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <p>Heat Shield:</p>
+                    <p class="card-footer-item">
+                        Material:
+                        <%= dragon.heat_shield.material %>
+                    </p>
+                    <p class="card-footer-item">
+                        Size in Meters:
+                        <%= dragon.heat_shield.size_meters %>
+                    </p>
+                    <p class="card-footer-item">
+                        Degrees Temp:
+                        <%= dragon.heat_shield.temp_degrees %>
+                    </p>
+                    <p class="card-footer-item">
+                        Dev Partner:
+                        <%= dragon.heat_shield.dev_partner %>
+                    </p>
+                </footer>
+            </div>
+            <% } %>
+</body>
+
+</html>
