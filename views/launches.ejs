@@ -7,11 +7,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-    <title>Document</title>
+    <title>Launches</title>
 </head>
 
 <body>
+    <% for( let i=0; i < launches.length; i++ ) { %>
+        <% let launch=launches[i] %>
 
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img src="<%= launch.links.patch.large %>" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">
+                                <%= launch.name %>
+                            </p>
+                            <p class="subtitle is-6">
+                                <%= launch.details %>
+                            </p>
+
+
+                            <p>
+                                <strong>Fairings:</strong>
+                                <br>
+                                Reused:
+                                <%= launch.fairings.reused %>
+                                    <br>
+                                    Recovery Attempt:
+                                    <%= launch.fairings.recovery_attempt %>
+                                        <br>
+                                        Recovered:
+                                        <%= launch.fairings.recovered %>
+                                            <br>
+                                            Ships:
+                                            <%= launch.fairings.ships %>
+                            </p>
+                            <p class="title is-5">Links:</p>
+                            <p>
+                                <strong>Reddit:</strong>
+                                <br>
+                                Campaign:
+                                <%= launch.links.reddit.campaign %>
+                                    <br>
+                                    Launch:
+                                    <%= launch.links.reddit.launch %>
+                                        <br>
+                                        Media:
+                                        <%= launch.links.reddit.media %>
+                                            <br>
+                                            Recovery:
+                                            <%= launch.links.reddit.Recovery %>
+                            </p>
+                            <p>
+                                <strong>Flickr:</strong>
+                                <br>
+                                <%= launch.links.flickr.small %>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>
+                            Static Fire Date:
+                            <%= launch.static_fire_date_utc %>
+                                <br>
+                                Net:
+                                <%= launch.net %>
+                                    <br>
+                                    Window:
+                                    <%= launch.window%>
+                                        <br>
+                                        Rocket:
+                                        <%= launch.rocket %>
+                                            <br>
+                                            Success:
+                                            <%= launch.success %>
+                                                <strong>Failures:</strong>
+                                                <br>
+                                                Time:
+                                                <%= launch.failures.time %>
+                                                    <br>
+                                                    Altitude:
+                                                    <%= launch.failures.altitude %>
+                                                        <br>
+                                                        Reason:
+                                                        <%= launch.failures.reason %>
+                                                            <br>
+                                                            <strong>Details:</strong>
+                                                            <%= launch.details %>
+                                                                <br>
+                                                                Crew:
+                                                                <%= launch.crew %>
+                                                                    <br>
+                                                                    Ships:
+                                                                    <%= launch.ships %>
+                                                                        <br>
+                                                                        Capsules:
+                                                                        <%= launch.capsules %>
+                                                                            <br>
+                                                                            Payloads:
+                                                                            <%= launch.payloads %>
+                                                                                <br>
+                                                                                Launchpad:
+                                                                                <%= launch.launchpad %>
+                                                                                    <br>
+                                                                                    Flight Number:
+                                                                                    <%= launch.flight_number %>
+                                                                                        <br>
+                                                                                        Date UTC:
+                                                                                        <%= launch.date_utc %>
+                                                                                            <br>
+                                                                                            Upcoming:
+                                                                                            <%= launch.upcoming %>
+                                                                                                <br>
+                                                                                                <strong>Cores</strong>
+                                                                                                <%= launch.cores.core %>
+                                                                                                    <br>
+                                                                                                    Flight:
+                                                                                                    <%= launch.cores.flight
+                                                                                                        %>
+                                                                                                        <br>
+                                                                                                        Gridfins:
+                                                                                                        <%= launch.cores.gridfins
+                                                                                                            %>
+                                                                                                            <br>
+                                                                                                            Legs:
+                                                                                                            <%= launch.cores.legs
+                                                                                                                %>
+                                                                                                                <br>
+                                                                                                                Reused:
+                                                                                                                <%= launch.cores.reused
+                                                                                                                    %>
+                                                                                                                    <br>
+                                                                                                                    Landing
+                                                                                                                    Attempt:
+                                                                                                                    <%= launch.cores.landing_attempt
+                                                                                                                        %>
+                                                                                                                        <br>
+                                                                                                                        Landing
+                                                                                                                        Success
+                                                                                                                        <%= launch.cores.landing_success
+                                                                                                                            %>
+                                                                                                                            <br>
+                                                                                                                            Landing
+                                                                                                                            Type:
+                                                                                                                            <%= launch.cores.landing_type
+                                                                                                                                %>
+                                                                                                                                <br>
+                                                                                                                                Landpad:
+                                                                                                                                <%= launch.cores.landpad
+                                                                                                                                    %>
+
+                        </p>
+                        <br>
+
+                    </div>
+                </div>
+                <div class="card">
+                    <footer class="card-footer">
+                        <a href="<%= launch.webcast %>" class="card-footer-item">Webcast</a>
+                        <a href="<%= launch.article %>" class="card-footer-item">Article via Space.com</a>
+                        <a href="<%= launch.wikipedia %>" class="card-footer-item">Wikipedia</a>
+                    </footer>
+                </div>
+            </div>
+            <% } %>
 </body>
 
 </html>

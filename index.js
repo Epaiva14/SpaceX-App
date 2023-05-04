@@ -405,7 +405,7 @@ app.get('/launches', function (req, res) {
         .then(function (response) {
             // handle success
             //console.log(response.data);
-            res.json({ data: response.data })
+            res.render('launches', { launches: response.data })
         })
         .catch(function (error) {
             //console.log(error);
@@ -418,33 +418,33 @@ app.get('/launches/*', function (req, res) {
             const launchesArray = [];
 
             for (let i = 0; i < response.data.length; i++) {
-                let launch = response.data[i];
+                let launches = response.data[i];
                 let userRequest = req.params['0'].split('/'); // ['reuse_count', '0']            // this is good
                 if (userRequest[0] === 'details') {
-                    if (launch.details === userRequest[1]) {
-                        launchesArray.push(launch);
+                    if (launches.details === userRequest[1]) {
+                        launchesArray.push(launches);
                     }
                 } else if (userRequest[0] === 'name') {
-                    if (launch.name === userRequest[1]) {
-                        launchesArray.push(launch);
+                    if (launches.name === userRequest[1]) {
+                        launchesArray.push(launches);
                     }
 
                 } else if (userRequest[0] === 'window') {
                     let countValue = parseInt(userRequest[1]) // Number(userRequest[1])
-                    if (launch.window === countValue) {
-                        launchesArray.push(launch);
+                    if (launches.window === countValue) {
+                        launchesArray.push(launches);
                     }
                 } else if (userRequest[0].toLowerCase() === 'net') {
-                    if (launch.net.toUpperCase() === userRequest[1].toUpperCase()) {
-                        launchesArray.push(launch);
+                    if (launches.net.toUpperCase() === userRequest[1].toUpperCase()) {
+                        launchesArray.push(launches);
                     }
                 } else if (userRequest[0] === 'rocket') {
-                    if (launch.rocket === userRequest[1]) {
-                        launchesArray.push(launch);
+                    if (launches.rocket === userRequest[1]) {
+                        launchesArray.push(launches);
                     }
                 } else if (userRequest[0] === 'success') {
-                    if (launch.success === userRequest[1]) {
-                        launchesArray.push(launch);
+                    if (launches.success === userRequest[1]) {
+                        launchesArray.push(launches);
                     }
                 } else {
                     return res.json({ message: 'Data is not found... Please try again' })
@@ -454,7 +454,7 @@ app.get('/launches/*', function (req, res) {
             if (launchesArray.length < 1) {
                 return res.json({ message: 'Launch not found, Please try again' });
             } else {
-                return res.json({ capsules: launchesArray });
+                return res.render('launches', { launches: launchesArray });
             }
         })
 
@@ -576,41 +576,41 @@ app.get('/payloads/*', function (req, res) {
             const payloadArray = [];
 
             for (let i = 0; i < response.data.length; i++) {
-                let payload = response.data[i];
+                let payloads = response.data[i];
                 let userRequest = req.params['0'].split('/'); // ['reuse_count', '0']
                 if (userRequest[0] === 'type') {
-                    if (payload.type === userRequest[1].toUpperCase()) {
-                        return res.json({ payload });
+                    if (payloads.type === userRequest[1].toUpperCase()) {
+                        return res.render('payloads', { payloads: response.data });
                     }
                 } else if (userRequest[0] === 'mass_kg') {
                     let countValue = parseInt(userRequest[1]) // Number(userRequest[1])
-                    if (payload.mass_kg === countValue) {
-                        payloadArray.push(payload);
+                    if (payloads.mass_kg === countValue) {
+                        payloadArray.push(payloads);
                     }
                 } else if (userRequest[0] === 'mass_lbs') {
                     let countValue = parseInt(userRequest[1]) // Number(userRequest[1])
-                    if (payload.mass_lbs === countValue) {
-                        payloadArray.push(payload);
+                    if (payloads.mass_lbs === countValue) {
+                        payloadArray.push(payloads);
                     }
 
                 } else if (userRequest[0] === 'name') {
-                    if (payload.name === userRequest[1]) {
-                        payloadArray.push(payload);
+                    if (payloads.name === userRequest[1]) {
+                        payloadArray.push(payloads);
                     }
                 } else if (userRequest[0] === 'reused') {
-                    if (payload.reused === userRequest[1]) {
-                        payloadArray.push(payload);
+                    if (payloads.reused === userRequest[1]) {
+                        payloadArray.push(payloads);
                     }
                 } else if (userRequest[0] === 'launch') {
-                    if (payload.launch === userRequest[1]) {
-                        payloadArray.push(payload);
+                    if (payloads.launch === userRequest[1]) {
+                        payloadArray.push(payloads);
                     }
                 } else {
                     return res.json({ message: 'Data is not found... Please try again' })
                 }
 
             }
-            return res.json({ payload: payloadArray });
+            return res.render('payloads', { payloads: payloadArray });
 
         })
 
@@ -632,7 +632,19 @@ app.get('/rockets', function (req, res) {
         .then(function (response) {
             // handle success
             //console.log(response.data);
-            res.json({ data: response.data })
+            res.render('rockets', { rockets: response.data })
+        })
+        .catch(function (error) {
+            //console.log(error);
+            res.json({ message: 'Data not found. Please try again later' })
+        });
+});
+app.get('/rockets/*', function (req, res) {
+    axios.get('https://api.spacexdata.com/v4/rockets')
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            res.render('rockets', { rockets: response.data })
         })
         .catch(function (error) {
             //console.log(error);
@@ -644,7 +656,19 @@ app.get('/ships', function (req, res) {
         .then(function (response) {
             // handle success
             //console.log(response.data);
-            res.json({ data: response.data })
+            res.render('ships', { ships: response.data })
+        })
+        .catch(function (error) {
+            //console.log(error);
+            res.json({ message: 'Data not found. Please try again later' })
+        });
+});
+app.get('/ships/*', function (req, res) {
+    axios.get('https://api.spacexdata.com/v4/ships')
+        .then(function (response) {
+            // handle success
+            //console.log(response.data);
+            res.render('ships', { ships: response.data })
         })
         .catch(function (error) {
             //console.log(error);

@@ -7,11 +7,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-    <title>Document</title>
+    <title>Rockets</title>
 </head>
 
 <body>
+    <% for( let i=0; i < rockets.length; i++ ) { %>
+        <% let rocket=rockets[i] %>
+            <div class="columns">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-256x256">
+                                    <img src="<%= rocket.flickr_images %>" alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">Name: <%= rocket.name %>
+                                </p>
+                                <p class="subtitle is-6">Type: <%= rocket.type %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="content">
+                                <p>Description: <br>
+                                    <%= rocket.description %>
+                                </p>
+                                <br>
+                                <p>
+                                    Height:
+                                    <%= rocket.height.meters %>
+                                        <br>
+                                        <%= rocket.height.feet %>
+                                </p>
+                                <p>
+                                    Diameter:
+                                    <%= rocket.diameter.meters %>
+                                        <br>
+                                        <%= rocket.diameter.feet %>
+                                </p>
+                                <p>
+                                    Mass:
+                                    <%= rocket.mass.kg %>
+                                        <br>
+                                        <%= rocket.mass.lb %>
+                                </p>
+                            </div>
+                            <div class="column">
+                                <p>
+                                    First Stage at Sea level KN:
+                                    <%= rocket.first_stage.thrust_sea_level.kN %>
+                                        <br>
+                                        First Stage at Sea level LBF:
+                                        <%= rocket.first_stage.thrust_sea_level.lbf %>
+                                            <br>
+                                            First Stage thrust vacuum KN:
+                                            <%= rocket.first_stage.thrust_vacuum.kN %>
+                                                <br>
+                                                First Stage thrust vacuum LBF:
+                                                <%= rocket.first_stage.thrust_vacuum.lbf %>
+                                                    <br>
+                                                    Reusable:
+                                                    <%= rocket.first_stage.reusable %>
+                                                        <br>
+                                                        Engines:
+                                                        <%= rocket.first_stage.engines %>
+                                                            <br>
+                                                            Fuel Amount/Tons:
+                                                            <%= rocket.first_stage.fuel_amount_tons %>
+                                                                <br>
+                                                                Burn Time:
+                                                                <%= rocket.first_stage.burn_time_sec %>
+                                </p>
+                            </div>
+                            <div class="column">
+                                <p>
+                                    Second Stage thrust KN:
+                                    <%= rocket.second_stage.thrust.kN %>
+                                        <br>
+                                        Second Stage thrust LBF:
+                                        <%= rocket.second_stage.thrust.lbf %>
+                                            <br>
+                                            Composite Fairing in meters:
+                                            <%= rocket.second_stage.payloads.composite_fairing.height.meters %>
+                                                <br>
+                                                Composite Fairing in feet:
+                                                <%= rocket.second_stage.payloads.composite_fairing.height.feet %>
+                                                    <br>
+                                                    Reusable:
+                                                    <%= rocket.second_stage.reusable %>
+                                                        <br>
+                                                        Engines:
+                                                        <%= rocket.second_stage.engines %>
+                                                            <br>
+                                                            Fuel Amount/tons:
+                                                            <%= rocket.second_stage.fuel_amount_tons %>
+                                                                <br>
+                                                                Burn Time:
+                                                                <%= rocket.second_stage.burn_time_sec %>
+                                </p>
+                            </div>
 
+                        </div>
+                        <div class="column">
+                            <p>
+                                Engine ISP sea-level:
+                                <%= rocket.engines.isp.sea_level %>
+                                    <br>
+                                    Engine ISP vacuum:
+                                    <%= rocket.engines.isp.vacuum %>
+                                        <br>
+                                        Engine thrust sea-level KN:
+                                        <%= rocket.engines.thrust_sea_level.kN %>
+                                            <br>
+                                            Engine thrust sea-level LBF:
+                                            <%= rocket.engines.thrust_sea_level.lbf %>
+                                                <br>
+                                                Engine thrust vacuum KN:
+                                                <%= rocket.engines.thrust_vacuum.kN %>
+                                                    <br>
+                                                    Engine thrust vacuum LBF:
+                                                    <%= rocket.engines.thrust_vacuum.lbf %>
+                                                        <br>
+                                                        Number:
+                                                        <%= rocket.engines.number %>
+                                                            <br>
+                                                            Type:
+                                                            <%= rocket.engines.type %>
+                                                                <br>
+                                                                Version:
+                                                                <%= rocket.engines.version %>
+                                                                    <br>
+                                                                    Layout:
+                                                                    <%= rocket.engines.layout %>
+                                                                        <br>
+                                                                        Engine loss max:
+                                                                        <%= rocket.engines.engine_loss_max %>
+                                                                            <br>
+                                                                            Propellant 1:
+                                                                            <%= rocket.engines.propellant_1 %>
+                                                                                <br>
+                                                                                Propellant 2:
+                                                                                <%= rocket.engines.propellant_2 %>
+                                                                                    <br>
+                                                                                    Thrust to weight:
+                                                                                    <%= rocket.engines.thrust_to_weight
+                                                                                        %>
+                            </p>
+                        </div>
+                        <div class="card">
+                            <footer class="card-footer">
+                                <p class="card-footer-item">Active: <%= rocket.active %>
+                                </p>
+                                <p class="card-footer-item">Stages: <%= rocket.stages %>
+                                </p>
+                                <p class="card-footer-item">Boosters: <%= rocket.boosters %>
+                                </p>
+                                <p class="card-footer-item">Cost/Launch: <%= rocket.cost_per_launch %>
+                                </p>
+                                <p class="card-footer-item">Success Rate: <%= rocket.success_rate_pct %>
+                                </p>
+                                <p class="card-footer-item">First Flight: <%= rocket.first_flight %>
+                                </p>
+                                <p class="card-footer-item">Country: <%= rocket.country %>
+                                </p>
+                                <p class="card-footer-item">Company: <%= rocket.company %>
+                                </p>
+                                <a href="<%= rocket.wikipedia %>" class="card-footer-item">Wikipedia
+                                </a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
 </body>
 
 </html>

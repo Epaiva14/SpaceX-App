@@ -11,7 +11,79 @@
 </head>
 
 <body>
+    <% for( let i=0; i < ships.length; i++ ) { %>
+        <% let ship=ships[i] %>
 
+
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-128x128">
+                                <img src="<%= ship.image %>" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">Name: <%= ship.name %>
+                            </p>
+                            <p class="subtitle is-6">Type: <%= ship.type %>
+                            </p>
+                            <p class="subtitle is-6">Model: <%= ship.model %>
+                            </p>
+                            <p class="subtitle is-6">Active: <%= ship.active %>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <a href=" <%= ship.link %>">Website: <%= ship.name %></a>
+                        <br>
+                        <p>Launches:
+                            <br>
+                            <%= ship.launches %>
+                        </p>
+                    </div>
+                    <footer class="card-footer">
+                        <p class="card-footer-item">Last AIS Update: <%= ship.last_ais_update %>
+                        </p>
+                        <p class="card-footer-item">Legacy ID: <%= ship.legacy_id %>
+                        </p>
+                        <p class="card-footer-item">Model: <%= ship.model %>
+                        </p>
+                        <p class="card-footer-item">Roles: <%= ship.roles %>
+                        </p>
+                        <p class="card-footer-item">IMO: <%= ship.imo %>
+                        </p>
+                        <p class="card-footer-item">MMSI: <%= ship.mmsi %>
+                        </p>
+                        <p class="card-footer-item">ABS: <%= ship.abs %>
+                        </p>
+                        <p class="card-footer-item">Class: <%= ship.class %>
+                        </p>
+                        <p class="card-footer-item">Mass KG: <%= ship.mass_kg %>
+                        </p>
+                        <p class="card-footer-item">Mass LBS: <%= ship.mass_lbs %>
+                        </p>
+                        <p class="card-footer-item">Year Built: <%= ship.year_built %>
+                        </p>
+                        <p class="card-footer-item">Home Port: <%= ship.home_port %>
+                        </p>
+                        <p class="card-footer-item">Status: <%= ship.status %>
+                        </p>
+                        <p class="card-footer-item">Speed KN: <%= ship.speed_kn %>
+                        </p>
+                        <p class="card-footer-item">Course Degree: <%= ship.course_deg %>
+                        </p>
+                        <p class="card-footer-item">Latitude: <%= ship.latitude %>
+                        </p>
+                        <p class="card-footer-item">Longitude: <%= ship.longitude %>
+                        </p>
+                        <a href="<%= ship.wikipedia %>" class="card-footer-item">Wikipedia
+                        </a>
+                    </footer>
+                </div>
+            </div>
+            <% } %>
 </body>
 
 </html>
