@@ -680,7 +680,7 @@ app.get('/starlink', function (req, res) {
         .then(function (response) {
             // handle success
             //console.log(response.data);
-            res.json({ data: response.data })
+            res.render('starlink', { starlink: response.data })
         })
         .catch(function (error) {
             //console.log(error);
